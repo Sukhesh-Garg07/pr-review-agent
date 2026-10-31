@@ -1,0 +1,14 @@
+diff --git a/taskstore/store.py b/taskstore/store.py
+--- a/taskstore/store.py
++++ b/taskstore/store.py
+@@ -16,2 +16,10 @@
+     def all_ids(self):
+         return list(self._tasks)
++
++    def find(self, tags=[]):
++        print("searching", tags)
++        matches = []
++        for task_id, payload in self._tasks.items():
++            if all(t in payload.get("tags", []) for t in tags):
++                matches.append(task_id)
++        return matches
