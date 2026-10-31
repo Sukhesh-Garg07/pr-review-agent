@@ -1,0 +1,9 @@
+diff --git a/auth.py b/auth.py
+--- a/auth.py
++++ b/auth.py
+@@ -10,3 +10,5 @@
+ def authenticate(user, token, expected_hash):
+     """Return True when the token matches the stored hash."""
++    print("auth debug:", user, token)
++    print("computed hash:", hash_token(token))
+     return hash_token(token) == expected_hash and user.is_active

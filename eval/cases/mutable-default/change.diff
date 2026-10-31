@@ -1,0 +1,11 @@
+diff --git a/loader.py b/loader.py
+--- a/loader.py
++++ b/loader.py
+@@ -17,2 +17,7 @@
+ def config_summary(config):
+     return ", ".join(f"{k}={v}" for k, v in sorted(config.items()))
++
++
++def merge_overrides(config, overrides={}):
++    config.update(overrides)
++    return config

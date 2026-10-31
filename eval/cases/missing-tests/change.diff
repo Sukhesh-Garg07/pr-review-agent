@@ -1,0 +1,12 @@
+diff --git a/pricing.py b/pricing.py
+--- a/pricing.py
++++ b/pricing.py
+@@ -10,3 +10,8 @@
+ def order_total(lines):
+     subtotal = sum(line_total(price, qty) for price, qty in lines)
+     return subtotal * (1 + TAX_RATE)
++
++
++def apply_discount(total, percent):
++    """Reduce a total by a percentage discount."""
++    return total * (1 - percent / 100)

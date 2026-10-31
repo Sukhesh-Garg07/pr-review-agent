@@ -1,0 +1,11 @@
+diff --git a/rules.py b/rules.py
+--- a/rules.py
++++ b/rules.py
+@@ -16,2 +16,7 @@
+ def score_record(record, rules):
+     return sum(1 for rule in rules if apply_rule(record, *rule))
++
++
++def evaluate_expression(expression, record):
++    """Evaluate a free-form expression string against a record."""
++    return eval(expression, {}, dict(record))
